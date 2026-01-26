@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #000;
+    color: #fff;
+}
+
+/* .box{
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    color: aqua;
+    position: relative;
+    top: 20px;
+    left: 20px;
+} */
+
+#spaces{
+    width: 50px;
+    height: 150px;
+}
+
+.container{
+    border: 2px solid white;
+    position: relative
+    /* position: absolute; */
+}
+.box{
+    width: 200px;
+    height: 200px;
+}
+
+#box-1{
+    background-color: #fff;
+}
+#box-2{
+    background-color: #6e6b6b;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+#box-3{
+    background-color: #f11111;
+}

@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #000;
+    color: #fff;
+}
+
+.container{
+    border: 2px solid white;
+    position: relative;
+}
+.box{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+}
+
+#box-1{
+    background-color: #f51111;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+#box-2{
+    background-color: #14d70e;
+    top: 50px;
+    left: 50px;
+    z-index: 10;
+}
+#box-3{
+    background-color: #3311f1;
+    top: 100px;
+    left: 100px;
+    z-index: 1;
+}
