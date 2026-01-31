@@ -1,0 +1,48 @@
+* ,
+*::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: white;
+    height: 100vh;
+}
+
+.container{
+    border: 2px solid rebeccapurple;
+    padding: 20px;
+    position: relative;
+}
+
+.card{
+    width: 200px;
+    margin-bottom: 20px;
+    height: 200px;
+}
+
+.card1{
+    background-color: aliceblue;
+    color: black;
+    position: absolute;
+    left: 40px;
+    z-index: 5;
+}
+.card2{
+    background-color: rgb(42, 141, 228);
+    color: rgb(235, 211, 211);
+    position: absolute;
+    top: 40px;
+    left: 60px;
+    z-index: 10;
+}
+.card3{
+    background-color: rgb(202, 240, 36);
+    color: black;
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    z-index: 1;
+}

@@ -1,0 +1,46 @@
+* ,
+*::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: white;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.card{
+    border: 2px solid rebeccapurple;
+    width: 400px;
+    height: auto;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.name{
+    text-align: center;
+    /* font: bold; */ /* this is wrong */
+    font-weight: bold;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+.role{
+    text-align: end;
+    font-size: 30px;
+    margin-bottom: 10px;
+    /* font: italic; */
+    font-style: italic;
+    text-decoration:underline;
+}
+
+.bio{
+    font-size: 20px;
+}
+
+
