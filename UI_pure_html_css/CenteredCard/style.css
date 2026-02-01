@@ -1,0 +1,33 @@
+* ,
+*::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    padding-top: 100px;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    width: 400px;
+    margin: 0 auto;
+    background-color: rgb(135, 235, 235);
+    border: 2px solid rgb(240, 152, 152);
+    padding: 16px;
+    color: #000;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px; 
+    letter-spacing: 0.5px;
+}
+
+p {
+    font-size: 14px;
+    line-height: 1.6;
+}

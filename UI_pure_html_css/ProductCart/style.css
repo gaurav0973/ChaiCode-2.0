@@ -1,0 +1,50 @@
+* ,
+*::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1f1f1f;
+    color: white;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+}
+
+.card{
+    /* border: 2px solid red; */
+    background-color: #575353;
+    margin: 20px;
+    padding: 25px;
+    border-radius: 20px;
+}
+
+.card-image img{
+    border-radius: 20px;
+    width: 300px;
+    height: auto;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center
+}
+
+
+.button{
+    background-color: greenyellow;
+    margin: 10px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.button:hover{
+    background-color: green;
+}
+
