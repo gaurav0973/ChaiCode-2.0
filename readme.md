@@ -10,7 +10,11 @@
 ## CSS
 - [CSS-Labs](https://labs.chaicode.com/)
 ![css-lab-images](./globalmages/CSS-lab.png)
-- positioning
-    - relative
-    - absolute
-    - z-index
+    - positioning
+        - relative
+        - absolute
+        - z-index
+    - flexbox
+        - justify-content => main axis
+        - align-items => cross axis
+        - flex-direction => row/column
