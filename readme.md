@@ -18,3 +18,13 @@
         - justify-content => main axis
         - align-items => cross axis
         - flex-direction => row/column
+    - grid
+        - grid-template-columns
+        - grid-template-rows
+        - grid-row
+        - grid-column
+## Tailwind CSS
+    - Responsiveness
+        - kuch nahi likha => applies to all screen sizes => mobile first
+        - sm => small and above => mere desktop ke liye
+        - lg => large and above => mere bade desktop ke liye

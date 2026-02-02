@@ -1,0 +1,27 @@
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #1f1f1f;
+    color: #f1f1f1;
+}
+.layout{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(2, 200px);
+    gap: 10px;
+}
+
+.grid{
+    border: 2px solid pink;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-1{
+    grid-row: span 2;
+}

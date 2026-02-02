@@ -1,0 +1,32 @@
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #1f1f1f;
+    color: #f1f1f1;
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1px;
+}
+
+.grid{
+    height: 200px;
+    border: 2px solid pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-1{
+    grid-column: 1/-1;
+}
+
+.grid-4{
+    grid-column: 1/-1;
+}

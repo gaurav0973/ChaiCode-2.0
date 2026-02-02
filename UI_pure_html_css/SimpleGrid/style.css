@@ -1,0 +1,25 @@
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #1f1f1f;
+    color: #f1f1f1;
+}
+.container{
+    border: 2px solid red;
+    margin: 20px;
+    display: grid;
+    gap: 10px;
+    /* grid-template-rows: repeat(2, 1fr); */
+    grid-template-columns: repeat(3, 1fr);
+}
+.grid{
+    height: 150px;
+    border: 2px solid pink;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
