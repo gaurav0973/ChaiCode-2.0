@@ -58,8 +58,8 @@ fruits.splice(2, 0, "Orange" );
 
 //💗Trap
 let arr = [NaN];
-console.log(arr.includes(NaN));
-console.log(arr.indexOf(NaN))
+// console.log(arr.includes(NaN));
+// console.log(arr.indexOf(NaN))
 
 
 /*
@@ -89,3 +89,32 @@ forEach cannot be stopped midway
 //     return
 // })
 
+
+/*🌟5. Keep in mind 
+    - const a = Array(3)
+    - const x = Array.of(3)
+    - const y = Array.from(3)
+*/
+
+const a = Array(3)
+console.log(a)
+
+const x = Array.of(3,4,6,7)
+console.log(x)
+
+const y = Array.from(356) //does not print because this is not iterable
+console.log(y) // empty array
+console.log(Array.from({name:"gaurav"}))
+
+
+// 💗
+/*
+Array.from() only works on:
+- Iterable objects
+      - string
+      - array
+      - set
+      - map
+- Array-like objects
+      -  must have length property
+*/
