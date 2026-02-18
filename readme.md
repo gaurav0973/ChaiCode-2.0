@@ -38,3 +38,24 @@
         - kuch nahi likha => applies to all screen sizes => mobile first
         - sm => small and above => mere desktop ke liye
         - lg => large and above => mere bade desktop ke liye
+
+## Javascipt
+    - DataTypes 
+        - Premitive 
+            - Number 
+            - String
+            - BigInt
+            - undefined
+            - null
+            - Symbol
+            - boolean
+        - Non-premetive
+            - Object
+                - normal object
+                - array object
+                - function object
+    - How Js code executes in the memory (Factory Example)
+    - Arrays
+    - Objects
+        - Deep copy and shallow copy
+    - Functions
