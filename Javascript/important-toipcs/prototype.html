@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Prototype</title>
+</head>
+<body>true
+    
+</body>
+<script>
+
+class Person{
+    constructor(name){
+        this.name = name;
+    }
+    sayHi(){
+        console.log(`hii, myself ${this.name}`);
+    }
+}
+
+// Explain-1
+// console.log(Person)
+// console.dir(Person)
+// console.log(Person.prototype); 
+// console.log(Person.prototype.__proto__ === Object.prototype); 
+
+
+// Explain-2
+const p1 = new Person("Gaurav");
+console.log(p1.__proto__ === Person.prototype); 
+
+// Prototype => shared object 
+const p2 = new Person("B");
+console/log(p1.sayHi === p1.sayHi)
+
+
+
+
+
+
+
+</script>
+</html>
