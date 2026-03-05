@@ -25,12 +25,17 @@ function renderOnScreen() {
     div.classList.add("todo-item");
 
     const li = document.createElement("li");
-    li.innerText = taskText;
+    li.innerText = taskText.text;
+    li.setAttribute("data-index", idx);
+
+    if (taskText.completed) {
+      li.classList.add("completed");
+    }
 
     const deleteBtn = document.createElement("button");
     deleteBtn.innerText = "Delete";
     deleteBtn.classList.add("delete-btn");
-    deleteBtn.setAttribute("index", idx);
+    deleteBtn.setAttribute("data-index", idx);
 
     div.append(li, deleteBtn);
     todoList.append(div);
@@ -41,7 +46,7 @@ addBtn.addEventListener("click", () => {
   const val = inputField.value.trim();
   if (val === "") return;
 
-  tasks.push(val);
+  tasks.push({ text: val, completed: false });
   // console.log(tasks)
   renderOnScreen();
   inputField.value = "";
@@ -54,8 +59,14 @@ inputField.addEventListener("keypress", function (e) {
 
 todoList.addEventListener("click", (e) => {
   if (e.target.classList.contains("delete-btn")) {
-    let idx = e.target.getAttribute("index");
+    let idx = e.target.getAttribute("data-index");
     tasks.splice(idx, 1);
+    renderOnScreen();
+  }
+
+  if (e.target.tagName === "LI") {
+    const idx = e.target.getAttribute("data-index");
+    tasks[idx].completed = !tasks[idx].completed;
     renderOnScreen();
   }
 });
