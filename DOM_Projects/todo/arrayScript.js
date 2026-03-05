@@ -1,4 +1,4 @@
-let tasks = [];
+let tasks = JSON.parse(localStorage.getItem("myTasks")) || [];
 
 const addBtn = document.getElementById("addBtn");
 const inputField = document.querySelector("#inputArea");
@@ -7,8 +7,19 @@ const todoList = document.querySelector(".todoList");
 // jo bhi array me haii, usko screen par showw karo
 function renderOnScreen() {
   todoList.innerHTML = ""; //BUG-FIX: clear the canva
+  // console.log(tasks);
+  localStorage.setItem("myTasks", JSON.stringify(tasks));
 
-  console.log(tasks);
+  if (tasks.length === 0) {
+    const message = document.createElement("p");
+    message.innerText = "No tasks yet! Time to add some ☕";
+    message.style.textAlign = "center";
+    message.style.color = "#8b5a2b";
+    message.style.marginTop = "20px";
+    todoList.append(message);
+    return;
+  }
+
   tasks.forEach((taskText, idx) => {
     const div = document.createElement("div");
     div.classList.add("todo-item");
@@ -50,3 +61,21 @@ todoList.addEventListener("click", (e) => {
 });
 
 renderOnScreen();
+
+/*
+-------------Local Storage-----------------
+// add/isme hi override kar deta hai 
+localStorage.setItem("fName", "Gaurav")
+localStorage.setItem("mName", "Kumar")
+localStorage.setItem("lName", "Maurya")
+
+// get item
+const fName = localStorage.getItem("fName")
+console.log("First name: ",fName)
+
+// delete/remove
+localStorage.removeItem("mName")
+
+// clear all items
+localStorage.clear()
+*/
