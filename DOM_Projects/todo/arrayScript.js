@@ -1,4 +1,4 @@
-let tasks = ["Drink Chai", "Learn JS"];
+let tasks = [];
 
 const addBtn = document.getElementById("addBtn");
 const inputField = document.querySelector("#inputArea");
@@ -6,6 +6,8 @@ const todoList = document.querySelector(".todoList");
 
 // jo bhi array me haii, usko screen par showw karo
 function renderOnScreen() {
+  todoList.innerHTML = ""; //BUG-FIX: clear the canva
+
   console.log(tasks);
   tasks.forEach((taskText, idx) => {
     const div = document.createElement("div");
