@@ -19,7 +19,6 @@ function renderOnScreen() {
     todoList.append(message);
     return;
   }
-
   tasks.forEach((taskText, idx) => {
     const div = document.createElement("div");
     div.classList.add("todo-item");

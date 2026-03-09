@@ -22,9 +22,7 @@ addBtn.addEventListener("click", function () {
 
   div.append(li);
   div.append(deleteBtn);
-  tasks.push(div);
-  // todoList.append(div);
-
+  todoList.append(div);
   inputField.value = "";
 });
 inputField.addEventListener("keypress", function (e) {

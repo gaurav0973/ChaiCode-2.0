@@ -1,81 +1,128 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body{
-    background: #1f1f1f;
-    color: #f1f1f1;
-    font-family: Arial, sans-serif;
+/* 1. Global Reset & Chai Foundation */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "Segoe UI", sans-serif; /* Soft, rounded font */
 }
 
+body {
+  background-color: #fdf5e6; /* Warm off-white / Milky background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* 2. The Main Chai Container */
 .todoContainer {
-    max-width: 500px;
-    margin: 50px auto;
-    padding: 20px;
+  background: #ffffff;
+  width: 90%;
+  max-width: 420px;
+  padding: 2.5rem;
+  border-radius: 20px; /* Softer, rounder corners */
+  box-shadow: 0 15px 35px rgba(139, 90, 43, 0.1); /* Subtle tea-colored shadow */
+  border: 1px solid #f3e5ab; /* Very light golden border */
 }
 
-.todoContainer h2 {
-    margin-bottom: 20px;
+h2 {
+  color: #6f4e37; /* Coffee/Tea brown */
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
-.todoContainer div:nth-of-type(2) {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+/* 3. Input & Add Button */
+.todoContainer > div:first-of-type {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 2rem;
 }
 
 #inputArea {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #444;
-    background: #2a2a2a;
-    color: #f1f1f1;
-    border-radius: 4px;
+  flex: 1;
+  padding: 12px 18px;
+  border: 2px solid #eaddca; /* Light tan border */
+  border-radius: 12px;
+  outline: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background-color: #fffaf0;
+}
+
+#inputArea:focus {
+  border-color: #8b5a2b; /* Darker tea brown on focus */
+  background-color: #fff;
 }
 
 #addBtn {
-    padding: 10px 20px;
-    background: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  padding: 12px 24px;
+  background-color: #8b5a2b; /* Deep tea brown */
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition:
+    transform 0.2s,
+    background 0.3s;
 }
 
 #addBtn:hover {
-    background: #45a049;
+  background-color: #6f4e37;
+  transform: translateY(-2px);
 }
 
+/* 4. The List & Items */
 .todoList {
-    list-style: none;
+  list-style: none;
 }
 
 .todo-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px;
-    background: #2a2a2a;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    border-left: 4px solid #4CAF50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  background: #fffcf7;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #f9f1e7;
+  transition: all 0.2s ease;
+}
+
+.todo-item:hover {
+  border-color: #d2b48c; /* Tan/Skin color hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 .todo-item li {
-    flex: 1;
+  font-size: 1rem;
+  color: #4a3728; /* Dark brown text */
+  font-weight: 500;
 }
 
 .delete-btn {
-    padding: 6px 12px;
-    background: #f44336;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 12px;
+  background-color: #d2691e; /* Cinnamon/Spice orange-brown */
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: opacity 0.2s;
 }
 
 .delete-btn:hover {
-    background: #da190b;
+  background-color: #a0522d; /* Siennna brown */
+  opacity: 0.9;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+  color: #8b5a2b; /* Keep it in the chai theme */
+  font-style: italic;
 }
