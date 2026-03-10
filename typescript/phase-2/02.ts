@@ -61,5 +61,5 @@ function getLength<T extends {length : number}>(value : T): number{
 }
 console.log(getLength("hello"))
 console.log(getLength([1,2,3,4]))
-console.log(getLength(4))
+// console.log(getLength(4))
 
