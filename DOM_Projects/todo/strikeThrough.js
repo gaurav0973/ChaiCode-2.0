@@ -57,18 +57,24 @@ inputField.addEventListener("keypress", function (e) {
 });
 
 todoList.addEventListener("click", (e) => {
+  // console.log(e)
   if (e.target.classList.contains("delete-btn")) {
     let idx = e.target.getAttribute("data-index");
     tasks.splice(idx, 1);
     renderOnScreen();
   }
-
+  console.log(e.target.tagName)
   if (e.target.tagName === "LI") {
     const idx = e.target.getAttribute("data-index");
     tasks[idx].completed = !tasks[idx].completed;
     renderOnScreen();
   }
 });
+
+// todoList.addEventListener("dblclick", (e)=>{
+//   console.log(e.target.tagName)
+  
+// })
 
 renderOnScreen();
 

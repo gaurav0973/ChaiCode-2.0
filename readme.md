@@ -40,6 +40,7 @@
         - lg => large and above => mere bade desktop ke liye
 
 ## Javascipt
+![css-lab-images](./globalmages/js.png)
     - DataTypes 
         - Premitive 
             - Number 
