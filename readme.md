@@ -59,3 +59,28 @@
     - Objects
         - Deep copy and shallow copy
     - Functions
+    - Polyfills
+    - Async JS
+        - Callbacks
+        - Promises
+        - Async/Await
+    - DOM Manipulation
+
+
+## Getting Hands Dirty with Backend 
+    - API request types
+        - GET
+        - POST
+        - PUT
+        - DELETE
+    - NodeJS : a little bit of history
+        - V8 engine + libuv(c library) + Node.js Bindings => NodeJS
+    - NodeJS : creating server and handling apis from scratch
+    - How Express makes our life easier 
+        - New Paradigm
+            - Express
+            - Bun
+            - Hone
+            - Fastify
+            - Elysia
+    - Express project setup using typescript
