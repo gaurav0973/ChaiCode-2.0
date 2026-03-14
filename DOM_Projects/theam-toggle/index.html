@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Theme Toggle</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    
-    <div class="container">
-        <div class="center">
-            <h1>Theme Toggle</h1>
-            <button>Toggle to Dark Mode</button>
-        </div>
-    </div>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme Toggle</title>
 
-    <script src="./script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="center">
+      <h1>Theme Toggle</h1>
+      <button id="toggleBtn" class="btn">
+        <span id="btnText">Switch to Dark Mode</span>
+      </button>
+
+      <p id="modeText" class="mode">Current mode: Light</p>
+
+      <p class="tip">Tip: press T to toggle theme</p>
+
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+
 </body>
 </html>
