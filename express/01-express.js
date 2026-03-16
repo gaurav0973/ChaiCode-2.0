@@ -100,7 +100,79 @@ function basicServer(){
     })
 }
 
+function responceBasic(){
+    return new Promise((resolve, reject)=>{
+        const app = express()
+        app.use(express.json())
+        
+        app.get("/text", (req, res)=>{
+            res.send("Hello ji")
+        })
+
+        app.get("/json", (req, res)=>{
+            res.json({
+                framework : "Express",
+                version: "6.3.2"
+            })
+        })
+
+        app.get("/not-found", (req, res)=>{
+            res.status(404).json({
+                error : "page not found"
+            })
+        })
+
+
+        // AWS : autoscaling group : health check route
+        app.get("/health", (req, res)=>{
+            res.sendStatus(200)
+        })
+
+
+        app.get("/old-route", (req, res)=>{
+            // add entry in db to see how many users are visiting the old routes
+            res.redirect(301, "/new-route");
+        })
+
+        app.get("/xml", (req, res)=>{
+            res.type("application/xml").send("<dish>Biryani</dish>")
+        })
+
+        // CORS CACHING TRASHING RATELIMITING
+        app.get("/custom-headers", (req, res)=>{
+            res.set("X-Powered-By", "chai-Code")
+            res.set("X-Request-Id", "394nfb")
+            res.json({
+                message: "Custom headers set"
+            })
+        })
+
+
+        app.get("/no-content", (req, res)=>{
+            res.status(204).end() 
+            //send responce without sending any data : res.sendStatus()
+        })
+
+        const server = app.listen(0, async () => {
+            const port = server.address().port
+            const baseUrl = `http://127.0.0.1:${port}`
+
+            try {
+                // Calling the apis
+            } catch (error) {
+                console.log(error)
+            }
+            // resolve(server)
+            server.close(()=>{
+                console.log("Server has serverd his purpose")
+                resolve(server)
+            })
+        })
+    })
+}
+
 async function main(){
-    await basicServer()
+    // await basicServer()
+    await responceBasic()
 }
 main()
