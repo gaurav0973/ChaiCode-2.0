@@ -91,7 +91,11 @@ function basicServer(){
             } catch (error) {
                 console.log(error)
             }
-            resolve(server)
+            // resolve(server)
+            server.close(()=>{
+                console.log("Server has serverd his purpose")
+                resolve(server)
+            })
         })
     })
 }
