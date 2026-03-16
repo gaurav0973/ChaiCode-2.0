@@ -23,7 +23,7 @@ function basicServer(){
             const {q, limit} = req.query
             res.json({
                 query: q,
-                limit: limit | "10"
+                limit: limit || "10"
             })
         })
 
@@ -36,12 +36,62 @@ function basicServer(){
             })
         })
 
+        // POST : req.body
         app.post("/order", (req, res)=>{
             const order = req.body
             res.status(201).json({
                 status: "Created",
                 order : order
             })
+        })
+
+
+        const server = app.listen(0, async () => {
+            const port = server.address().port
+            const baseUrl = `http://127.0.0.1:${port}`
+
+            try {
+                const menuRes = await fetch(`${baseUrl}/menu`)
+                const menuDate = await menuRes.json() //parsing : serialisation and dserialisation
+                console.log('GET /menu : ', JSON.stringify(menuDate))
+
+
+                console.log("++++++++++++++++++++++++++")
+
+
+                const searchRes = await fetch(`${baseUrl}/search?q=biryani&limit=5&page=3`)
+                const searchData = await searchRes.json();
+                console.log('GET /search : ', JSON.stringify(searchData))
+
+                console.log("++++++++++++++++++++++++++")
+
+                const menuItemRes = await fetch(`${baseUrl}/menu/4`)
+                const menuItemData = await menuItemRes.json();
+                console.log('GET /menu/:id : ', JSON.stringify(menuItemData))
+
+                console.log("++++++++++++++++++++++++++")
+
+                const orderRes = await fetch(`${baseUrl}/order`, {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        dish : "biryani",
+                        quantity: 2
+                    })
+                })
+                const orderData = await orderRes.json();
+                console.log('POST /order ', JSON.stringify(orderData))
+
+                console.log("++++++++++++++++++++++++++")
+
+
+
+            } catch (error) {
+                console.log(error)
+            }
+            resolve(server)
         })
     })
 }
