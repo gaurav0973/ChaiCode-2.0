@@ -13,7 +13,7 @@ function init() {
   // "p-4 rounded"
   // 1. tokens =  ["p-4", "rounded"]
   // 2. ["p-4", "rounded"] => harr tokan ka matlab kya hai, pata karo and apply karo
-  // 1. style = P-4 => iska matab batao
+  // 1. styataole = P-4 => iska matab b
   // 2. apply that style
 
   const elements = document.querySelectorAll("[chaiClass]");

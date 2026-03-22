@@ -85,3 +85,9 @@
             - Fastify
             - Elysia
     - Express project setup using typescript
+
+## Some Best Practices
+
+TypeScript Backend Template
+- 🔗 Repository:  
+https://github.com/gaurav0973/type-script-backend-template
