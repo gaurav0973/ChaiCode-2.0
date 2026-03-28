@@ -20,12 +20,12 @@ export const login = async({email, password}) => {
     // 1. check user in DB 
     const user = await User.findOne({email})
     if(!user)
-        throw ApiError.unauthorized("Invalid credentials")
+        throw ApiError.unauthorised("Invalid credentials")
 
     // 2. compare password
     const isPasswordMatch = await user.comparePassword(password)
     if(!isPasswordMatch)
-        throw ApiError.unauthorized("Invalid credentials")
+        throw ApiError.unauthorised("Invalid credentials")
 
     // 3. access and refresh token 
     const payload = {
@@ -42,3 +42,10 @@ export const login = async({email, password}) => {
         refreshToken
     }
 }
+
+export const getProfile = async(userId)=>{
+    const user = await User.findById(userId)
+    if(!user) throw ApiError.notFound("User not found");
+    return user
+}
+
