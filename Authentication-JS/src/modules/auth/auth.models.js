@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -17,27 +18,33 @@ const userSchema = new mongoose.Schema({
     password:{
         type: String,
         required: [true, "Password is required"],
-        minLenght: 8,
+        minlength: 8,
     },
     role:{
         type: String,
         enum: ["user", "admin"],
-        default: "customer"
+        default: "user"
     },
-    isVerified:{
-        type: Boolean,
-        default: false
-    },
-    emailVerificationToken:{
-        type: String, 
-    },
-    emailVerificationTokenExpiry:{
-        type: Date,
+    refreshToken:{
+        type: String,
     }
 }, {
     timestamps:true
 })
 
+// password hashing => pre save hook
+userSchema.pre("save", async function(){
+    
+    // jab password me change ho, tabhi hash karo
+    if(!this.isModified("password")) 
+        return 
+    this.password =  await bcrypt.hash(this.password, 10)
+})
+
+// prototype ki tarah hi to hai
+userSchema.methods.comparePassword = async function(clearTextPasswordByUser){
+    return await bcrypt.compare(clearTextPasswordByUser, this.password);
+}
 
 export default mongoose.model("User", userSchema)
 // Note : User => database me jata hahi then 

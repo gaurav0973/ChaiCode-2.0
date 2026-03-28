@@ -1,9 +1,9 @@
+import ApiResponce from "../../common/utils/api-responce.js"
+import { register } from "./auth.service.js"
 
 
 
 export const registerUser = async(req, res)=>{
-    return res.status(200).json({
-        message : "message send successpuffy",
-        data : ["hello", "ki haal hai"]
-    })
+    const user = await register(req.body)
+    return ApiResponce.created(res, "User registered successfully", user)
 }
