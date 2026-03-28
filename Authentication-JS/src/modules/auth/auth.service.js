@@ -49,3 +49,6 @@ export const getProfile = async(userId)=>{
     return user
 }
 
+export const logout = async(userId) => {
+    await User.findByIdAndUpdate(userId, {refreshToken: null})
+}
