@@ -1,9 +1,12 @@
 import jwt from "jsonwebtoken"
+import dotenv from "dotenv"
+dotenv.config()
+console.log("secrety: ", process.env.JWT_ACCESS_KEY_SECRET)
 export const generateAccessToken = (payload)=>{
     return jwt.sign(payload, process.env.JWT_ACCESS_KEY_SECRET, {expiresIn:"15m"})
 }
 export const verifyAccessToken = (token) => {
-    return jwt.verify(token, process.JWT_ACCESS_KEY_SECRET)
+    return jwt.verify(token, process.env.JWT_ACCESS_KEY_SECRET)
 }
 export const generateRefreshToken = (payload) => {
     return jwt.sign(payload, process.env.JWT_REFRESH_KEY_SECRET, { expiresIn: "1d" })

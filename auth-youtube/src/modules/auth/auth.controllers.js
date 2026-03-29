@@ -1,5 +1,5 @@
 import ApiResponce from "../../common/utils/api-responce.js";
-import { login, register } from "./auth.service.js"
+import { getProfile, login, logout, register } from "./auth.service.js"
 
 
 export const registerUser = async(req, res) => {
@@ -16,4 +16,15 @@ export const loginUser = async(req, res)=>{
         httpOnly:true
     })
     return ApiResponce.ok(res, "User is logged in successfully", {user, accessToken})
+}
+
+export const getUserProfile = async(req, res)=>{
+    const user = await getProfile(req.user.id);
+    return ApiResponce.ok(res, "Profile fetched successfully", user)
+}
+export const logoutUser = async(req, res)=>{
+    await logout(req.user.id)
+    res.clearCookie("accessToken");
+    res.clearCookie("refreshToken");
+    return ApiResponce.ok(res, "user loged out successfully")
 }

@@ -46,3 +46,14 @@ export const login = async({email, password}) => {
         user, accessToken, refreshToken
     }
 }
+
+export const getProfile = async(userId) => {
+    const user = await User.findById(userId);
+    if(!user)
+        throw ApiError.notFound("user not found")
+    return user
+}
+
+export const logout = async(userId) => {
+    await User.findByIdAndUpdate(userId, {refreshToken:null})
+}
