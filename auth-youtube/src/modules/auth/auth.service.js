@@ -1,7 +1,8 @@
-import { useTransition } from "react";
 import ApiError from "../../common/utils/api-error.js";
 import { generateAccessToken, generateRefreshToken } from "../../common/utils/jwt.utils.js";
 import User from "./auth.models.js";
+import crypto from "crypto"
+import { sendVerificationEmail } from "../../common/config/email.js";
 export const register = async({name, email, password, role})=> {
     // 1. filterredf data
     // 2. check if the use is alreafy in db 
@@ -15,6 +16,13 @@ export const register = async({name, email, password, role})=> {
     const newUser = await User.create({name, email, password, role});
     if(!newUser)
         throw ApiError.internal("Failed to create the user")
+
+    // 4. SEND THE email to user
+    const token = crypto.randomBytes(32).toString("hex");
+    newUser.verificationToken = token
+    await newUser.save()
+    await sendVerificationEmail(newUser.email, token);
+
 
     return newUser;
 
@@ -30,6 +38,9 @@ export const login = async({email, password}) => {
     const isMatched = await user.comparePassword(password)
     if(!isMatched)
         throw ApiError.unauthorised("Invalid email or password")
+
+    if(!user.isVerified)
+        throw ApiError.unauthorised("Email is not verified: Please verify your email first")
 
     // 3. create access and refresh token
     const payload = {
@@ -56,4 +67,15 @@ export const getProfile = async(userId) => {
 
 export const logout = async(userId) => {
     await User.findByIdAndUpdate(userId, {refreshToken:null})
+}
+
+
+export const verifyEmail = async(token) => {
+    const user = await User.findOne({verificationToken:token});
+    if(!user)
+        throw ApiError.notFound("Invalid Token")
+
+    user.isVerified = true
+    user.verificationToken=null
+    await user.save()
 }
