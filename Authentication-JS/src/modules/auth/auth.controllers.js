@@ -1,9 +1,9 @@
 import ApiResponce from "../../common/utils/api-responce.js";
-import { getProfile, login, logout, register } from "./auth.service.js";
+import { getProfile, login, logout, register, verifyEmail } from "./auth.service.js";
 
 export const registerUser = async (req, res) => {
   const user = await register(req.body);
-  return ApiResponce.created(res, "User registered successfully", user);
+  return ApiResponce.created(res, "User registered successfully, verify you email", user);
 };
 
 export const loginUser = async (req, res) => {
@@ -36,4 +36,10 @@ export const logoutUser = async (req, res) => {
     res.clearCookie("accessToken");
     res.clearCookie("refreshToken");
     return ApiResponce.ok(res, "User logged out successfully");
+}
+
+
+export const verifyUserEmail = async(req, res) => {
+    await verifyEmail(req.params.token)
+    return ApiResponce.ok(res, "Email verified successfully")
 }
