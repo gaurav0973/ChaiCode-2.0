@@ -69,7 +69,7 @@ function getCustomer(id: number): Customer | null | undefined {
     return id === 0 ? null : { birthday: new Date() };
 }
 
-// Nullish Coalescing
+//6. Nullish Coalescing
 //=> fallback value provide karta hai jab left side null ya undefined hota hai
 function getCustomerBirthday(id: number): string {
     const customer = getCustomer(id);
@@ -77,6 +77,9 @@ function getCustomerBirthday(id: number): string {
     return birthday;
 }
 
-// 6. Type Assertions => compiler ko batana ki variable ka type kya hai
+// 7. Type Assertions => compiler ko batana ki variable ka type kya hai
 // => use with caution, wrong assertion se runtime error aa sakta hai
 // let someValue = document.getElementById("myElement") as HTMLInputElement;
+let someValue: unknown = "Hello, TypeScript!";
+let strLength: number = (someValue as string).length;
+let strLength2: number = (<string>someValue).length;
