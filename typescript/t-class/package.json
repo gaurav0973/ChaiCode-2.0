@@ -1,0 +1,14 @@
+{
+  "name": "t-class",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "scripts": {
+    "dev": "bun run ./src/*",
+    "build": "bun build ./src/* --outdir ./dist"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
