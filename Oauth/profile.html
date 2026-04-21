@@ -196,7 +196,10 @@
         <script>
             async function loadProfile() {
                 try {
-                    const res = await fetch("/api/me");
+              const res = await fetch("/auth/me");
+              if (!res.ok) {
+                throw new Error(`Failed to load profile: ${res.status}`);
+              }
                     const data = await res.json();
 
                     document.getElementById("avatar").src = data.picture;
