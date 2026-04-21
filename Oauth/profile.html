@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Profile</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg-1: #060913;
+        --bg-2: #111827;
+        --surface: rgba(17, 24, 39, 0.75);
+        --surface-border: rgba(148, 163, 184, 0.2);
+        --text-main: #f8fafc;
+        --text-muted: #93a3b8;
+        --accent: #38bdf8;
+        --accent-2: #a78bfa;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+        font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+        color: var(--text-main);
+        background:
+          radial-gradient(
+            circle at 20% 0%,
+            rgba(56, 189, 248, 0.25),
+            transparent 34%
+          ),
+          radial-gradient(
+            circle at 100% 100%,
+            rgba(167, 139, 250, 0.25),
+            transparent 38%
+          ),
+          linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 100%);
+      }
+
+      .card {
+        width: min(94vw, 760px);
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 28px;
+        background: var(--surface);
+        border: 1px solid var(--surface-border);
+        border-radius: 26px;
+        padding: 28px;
+        backdrop-filter: blur(14px);
+        box-shadow:
+          0 24px 70px rgba(0, 0, 0, 0.5),
+          inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      }
+
+      .avatar-wrap {
+        display: grid;
+        place-items: center;
+        align-content: center;
+        gap: 14px;
+      }
+
+      img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        border: 4px solid rgba(56, 189, 248, 0.42);
+        object-fit: cover;
+        background: #0b1220;
+        box-shadow: 0 16px 34px rgba(2, 132, 199, 0.28);
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 13px;
+        border-radius: 999px;
+        background: rgba(30, 41, 59, 0.8);
+        color: var(--text-muted);
+        font-size: 0.88rem;
+        border: 1px solid rgba(148, 163, 184, 0.22);
+      }
+
+      .status::before {
+        content: "";
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #22c55e;
+        box-shadow: 0 0 10px #22c55e;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: clamp(1.8rem, 4vw, 2.35rem);
+        letter-spacing: -0.03em;
+      }
+
+      .subtitle {
+        margin: 8px 0 0;
+        color: var(--text-muted);
+        font-size: 1rem;
+      }
+
+      .meta {
+        margin-top: 24px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 14px;
+        border-radius: 12px;
+        background: rgba(15, 23, 42, 0.8);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+      }
+
+      .label {
+        min-width: 74px;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      .value {
+        color: var(--text-main);
+        overflow-wrap: anywhere;
+      }
+
+      .accent {
+        background: linear-gradient(120deg, var(--accent), var(--accent-2));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      @media (max-width: 700px) {
+        .card {
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 18px;
+          padding: 22px;
+        }
+
+        .content {
+          align-items: center;
+        }
+
+        .meta {
+          width: 100%;
+        }
+
+        .meta-item {
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .label {
+          min-width: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="avatar-wrap">
+        <img id="avatar" src="" alt="Profile avatar" />
+        <span class="status">Authenticated</span>
+      </div>
+
+      <section class="content">
+        <h2>Welcome, <span class="accent" id="name">Loading...</span></h2>
+        <p class="subtitle">Your Google profile is connected and ready.</p>
+
+        <div class="meta">
+          <div class="meta-item">
+            <span class="label">Email</span>
+            <span class="value" id="email">Loading...</span>
+          </div>
+        </div>
+      </section>
+    </div>
+        <script>
+            async function loadProfile() {
+                try {
+                    const res = await fetch("/api/me");
+                    const data = await res.json();
+
+                    document.getElementById("avatar").src = data.picture;
+                    document.getElementById("name").innerText = data.name;
+                    document.getElementById("email").innerText = data.email;
+                } catch (error) {
+                    document.getElementById("name").innerText = "Unable to load";
+                    document.getElementById("email").innerText =
+                    "Please refresh the page.";
+                }
+            }
+            loadProfile();
+        </script>
+    </body>
+</html>
