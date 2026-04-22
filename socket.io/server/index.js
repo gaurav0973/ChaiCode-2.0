@@ -18,8 +18,8 @@ async function main() {
         console.log("A user connected:", socket.id);
         socket.on("send_message", (message) => {
             io.emit("receive_message", message);
-        });
-            // test
+        }); 
+        //  commit test
         socket.on("disconnect", () => {
             console.log("User disconnected:", socket.id);
         });
