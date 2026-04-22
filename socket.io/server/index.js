@@ -19,7 +19,7 @@ async function main() {
         socket.on("send_message", (message) => {
             io.emit("receive_message", message);
         });
-
+            // test
         socket.on("disconnect", () => {
             console.log("User disconnected:", socket.id);
         });
