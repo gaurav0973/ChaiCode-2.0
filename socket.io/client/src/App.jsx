@@ -7,16 +7,15 @@ export default function App() {
   const [chat, setChat] = useState([]);
 
   useEffect(() => {
-    socket.on("receive_message", (msg) => {
-      setChat((prev) => [...prev, msg]);
-    });
+    
   }, []);
 
   const sendMessage = () => {
     if (message.trim() === "") 
       return;
-    socket.emit("send_message", message);
-    setMessage("");
+      console.log("Message :", socket.id, message);
+      socket.emit("send_message", message);
+      setMessage("");
   };
 
   return (
