@@ -11,9 +11,7 @@ export default function App() {
   }, []);
 
   const sendMessage = () => {
-    if (message.trim() === "") 
-      return;
-      console.log("Message :", socket.id, message);
+      console.log(`Received message: ID ${socket.id} : message : ${message}`);
       socket.emit("send_message", message);
       setMessage("");
   };

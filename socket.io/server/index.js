@@ -6,16 +6,20 @@ import express from "express";
 async function main() {
     const app = express();
     app.use(cors({ origin: "*" }));
+    
     const server = createServer(app);
 
     const io = new Server(server, {
         cors: {
-            origin: "*"
-        }
+            origin: "*",
+        }   
     });
 
     io.on("connection", (socket) => {
         console.log("A user connected:", socket.id);
+        socket.on("send_message", (message) => {
+            console.log(`Received message: ID ${socket.id} : message : ${message}`);
+        });
     });
 
     server.listen(4000, () => {
