@@ -50,12 +50,14 @@ const ManualForm = () => {
                 <label className="flex flex-col gap-1">
                     Name: 
                     <input type="text" value={values.name} onChange={set("name")} className="border border-gray-300 rounded px-3 py-2"/>
+                    {error.name && <span className="text-red-500 text-sm">{error.name}</span>}
                 </label>
                 <label className="flex flex-col gap-1">
                     Email: 
                     <input type="email" value={values.email} onChange={set("email")} className="border border-gray-300 rounded px-3 py-2"/>
+                    {error.email && <span className="text-red-500 text-sm">{error.email}</span>}
                 </label>
-                <button type="submit">Submit</button>
+                <button type="submit" className="bg-blue-500 mt-2">Submit</button>
             </form>
         </div>
         </>
