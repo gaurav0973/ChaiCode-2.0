@@ -1,0 +1,4 @@
+- Why not return 2 html tags ?
+- What is fragment ?
+- How to write JS in React => {} => pura execute hone ke baad result milta hai
+- fetch => API => data => variable

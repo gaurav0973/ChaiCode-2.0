@@ -1,0 +1,5 @@
+- createRoot => vertual dom banata hai
+- render => control mujhe de do => virtual dom ko
+- What is vite ?
+- What is JSX ?
+- Writing CSS => simple as the basic one

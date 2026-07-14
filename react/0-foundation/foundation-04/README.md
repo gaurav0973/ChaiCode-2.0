@@ -1,0 +1,10 @@
+- const [cnt, setCnt] = useState(0)
+- default value
+- lazy state initionation => default me fuction de diya
+- cnt => data holder , {array, object, number, string}
+- setCnt => data changer => setter
+- state
+- useState => hook => functions
+- Popular hook
+    - useState
+    - useEffect
